@@ -66,7 +66,7 @@ BUILTIN_THEMES = [
             "version": "1.0.0",
             "api_version": "*",
             "preview": ASSETS_PATH / "images" / "themes" / "vista.png",
-            "color": "#10E5F5",
+            "color": "#4F95AE",
         }
     },
 ]

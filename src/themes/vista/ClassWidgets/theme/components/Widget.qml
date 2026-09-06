@@ -74,7 +74,7 @@ BaseTheme.BaseWidget {
             radius: root.cornerRadius
             opacity:Theme.isDark()
                 ? Configs.data.preferences.opacity * 0.7
-                : Configs.data.preferences.opacity * 1
+                : Configs.data.preferences.opacity * 1.2
             gradient: Shapes.RadialGradient {
                 centerX: width / 2
                 centerY: 0
@@ -89,6 +89,7 @@ BaseTheme.BaseWidget {
                 GradientStop { position: 0.933; color: Qt.alpha("#ffffff", Theme.isDark() ? 0.185 : 0.244) }
                 GradientStop { position: 1.00; color: Qt.alpha("#ffffff", Theme.isDark() ? 0.359 : 0.473) }
             }
+            z: 99
         }
 
         // Outer and inner glass edges are separate gradients in the reference.
@@ -104,11 +105,10 @@ BaseTheme.BaseWidget {
                 layer.enabled: true
                 layer.effect: Effects.LinearGradient {
                     start: Qt.point(0, 0)
-                    end: Qt.point(width, height)
+                    end: Qt.point(0, height)
                     gradient: Gradient {
-                        GradientStop { position: 0.00; color: "#8d8d8d" }
-                        GradientStop { position: 0.50; color: Qt.alpha("#8d8d8d", 0.45) }
-                        GradientStop { position: 1.00; color: "#8d8d8d" }
+                        GradientStop { position: 0.00; color: Qt.alpha("#8d8d8d", 0.65) }
+                        GradientStop { position: 1.00; color: Qt.alpha("#272727", 0.45) }
                     }
                 }
             }
@@ -123,6 +123,7 @@ BaseTheme.BaseWidget {
                     border.width: 1
                 }
             }
+            z: 99
         }
 
         Item {
@@ -157,6 +158,7 @@ BaseTheme.BaseWidget {
                     border.width: 1
                 }
             }
+            z: 99
         }
     }
 }

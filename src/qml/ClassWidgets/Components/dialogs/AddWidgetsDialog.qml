@@ -181,6 +181,9 @@ Dialog {
                                 if (addWidgetsDialog.selectedWidget.default_settings) {
                                     item.settings = addWidgetsDialog.selectedWidget.default_settings
                                 }
+                                if (item.hasOwnProperty('widget_id')) {
+                                    item.widget_id = addWidgetsDialog.selectedWidget.id
+                                }
                                 anim.start()
                             }
                         } else if (status === Loader.Error) {

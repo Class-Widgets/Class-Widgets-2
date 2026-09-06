@@ -39,6 +39,7 @@ class WidgetListModel(QAbstractListModel):
     BackendRole = Qt.UserRole + 6
     SettingsRole = Qt.UserRole + 7
     SettingsQmlRole = Qt.UserRole + 8
+    WidgetIdRole = Qt.UserRole + 9
 
     modelChanged = Signal()
     definitionChanged = Signal()
@@ -63,6 +64,7 @@ class WidgetListModel(QAbstractListModel):
             self.BackendRole: b"backendObj",
             self.SettingsRole: b"settings",
             self.SettingsQmlRole: b"settingsQml",
+            self.WidgetIdRole: b"widget_id",
         }
 
     def rowCount(self, parent=QModelIndex()):
@@ -88,6 +90,8 @@ class WidgetListModel(QAbstractListModel):
             return w.get("settings", {})
         if role == self.SettingsQmlRole:
             return w.get("settings_qml", self._definitions.get(w.get("type_id", ""), {}).get("settings_qml", ""))
+        if role == self.WidgetIdRole:
+            return w.get("id", w.get("type_id", ""))
         return None
 
     def _normalize_preset_entries(self, entries: list[str | PresetEntryInput | WidgetEntry]) -> list[WidgetEntry]:

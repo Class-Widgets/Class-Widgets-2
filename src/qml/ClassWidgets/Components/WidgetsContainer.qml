@@ -295,7 +295,8 @@ Column {
                                 widgetsContainer.editMode = true
                                 settingsDialog.setSource(model.settingsQml, {
                                     "settings": model.settings,
-                                    "instanceId": model.instanceId
+                                    "instanceId": model.instanceId,
+                                    "widget_id": model.widget_id
                                 })
                                 settingsDialog.open()
                             }
